@@ -15,3 +15,6 @@ A payment event may contain several payment orders.
 This service will also generate Async events for downstream services.
 
 <NodeGraph />
+
+<AsyncAPI />
+

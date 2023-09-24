@@ -15,3 +15,5 @@ It may also record how much a given user has paid in total.
 This service will also generate Async events for downstream services.
 
 <NodeGraph />
+
+<AsyncAPI />
