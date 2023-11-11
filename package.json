@@ -20,6 +20,7 @@
     "typescript": "^4.4.4"
   },
   "dependencies": {
-    "@eventcatalog/core": "1.0.6"
+    "@eventcatalog/core": "1.0.6",
+    "@eventcatalog/plugin-doc-generator-asyncapi": "^0.3.5"
   }
 }

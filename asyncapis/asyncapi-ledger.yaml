@@ -1,0 +1,79 @@
+asyncapi: 2.6.0
+id: 'urn:com.paymentic.ledger'
+info:
+  title: Paymentic Ledger APIs
+  version: 0.0.1
+defaultContentType: application/cloudevents+json; charset=UTF-8
+channels:
+
+  transactionWalletRegistered:
+    bindings:
+      kafka:
+        topic: 'payments'
+        partitions: 3
+        replicas: 3
+        bindingVersion: '0.4.0'
+    description: The topic on which payments may be consumed.
+    publish:
+      summary: >-
+        Inform about transaction registered in wallet
+      operationId: receiveTransactionWalletRegistered
+      message:
+        $ref: '#/components/messages/ceTransactionWalletRegisteredEvent'
+
+  transactionBookedEvent:
+    bindings:
+      kafka:
+        topic: 'payments'
+        partitions: 3
+        replicas: 3
+        bindingVersion: '0.4.0'
+    description: The topic on which payments may be consumed.
+    subscribe:
+      summary: >-
+        Inform about transaction registered in wallet
+      operationId: publishTransactionBooked
+      message:
+        $ref: '#/components/messages/ceTransactionBookedEvent'
+
+components:
+
+  messages:
+
+    ceTransactionWalletRegisteredEvent:
+      name: transactionWalletRegisteredEvent
+      title: Transaction registered in wallet
+      summary: >-
+        a payment event typically involves receiving a payment, confirming its processing, and then updating the payment amount in the user's digital wallet. This sequence ensures secure and reliable financial transactions within digital platforms.
+      contentType: application/cloudevents+json; charset=UTF-8
+      payload:
+        $ref: '#/components/schemas/transactionWalletRegisteredEvent'
+
+    ceTransactionBookedEvent:
+      name: transactionBookedEvent
+      title: Transaction Booked in records
+      summary: >-
+        a payment event typically involves receiving a payment, confirming its processing, and then updating the payment amount in the user's digital wallet. This sequence ensures secure and reliable financial transactions within digital platforms.
+      contentType: application/cloudevents+json; charset=UTF-8
+      payload:
+        $ref: '#/components/schemas/transactionBookedEvent'
+
+  schemas:
+
+    transactionBookedEvent:
+      type: object
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/cloudevents/spec/v1.0.1/spec.json'
+      properties:
+        data:
+          $ref: 'https://raw.githubusercontent.com/paymentic/schemas/main/transactions/payments-gateway.v1.transaction-booked.json'
+
+    transactionWalletRegisteredEvent:
+      type: object
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/cloudevents/spec/v1.0.1/spec.json'
+      properties:
+        data:
+          $ref: >-
+            https://raw.githubusercontent.com/paymentic/schemas/main/transactions/payments-gateway.v1.transaction-wallet-registered.json
+

@@ -1,0 +1,78 @@
+asyncapi: 2.6.0
+id: 'urn:com.paymentic.wallet'
+info:
+  title: Seller Wallet Payments APIs
+  version: 0.0.1
+defaultContentType: application/cloudevents+json; charset=UTF-8
+channels:
+
+  paymentsOrderApproved:
+    bindings:
+      kafka:
+        topic: 'payments'
+        partitions: 3
+        replicas: 3
+        bindingVersion: '0.4.0'
+    description: Handles payment orders that got approved.
+    publish:
+      summary: >-
+        Once an order receives approval, the application is instantly triggered, ensuring timely and secure handling of financial transactions. Integrating robust security measures and real-time monitoring, it ensures that every payment order is handled with the utmost precision and trustworthiness. Designed for businesses that prioritize swift and transparent financial operations, this application stands as a testament to the fusion of technology and finance.
+      operationId: receiveOrderApproved
+      message:
+        $ref: '#/components/messages/cePaymentsOrderApproved'
+
+  transactionWalletRegistered:
+    bindings:
+      kafka:
+        topic: 'payments'
+        partitions: 3
+        replicas: 3
+        bindingVersion: '0.4.0'
+    description: The topic on which payments may be consumed.
+    subscribe:
+      summary: >-
+        Inform about transaction registered in wallet
+      operationId: transactionWalletRegisteredStream
+      message:
+        $ref: '#/components/messages/ceTransactionWalletRegisteredEvent'
+
+
+components:
+  messages:
+
+    cePaymentsOrderApproved:
+      name: paymentsOrderApproved
+      title: Message that contains data when the payment order got approved from PSP
+      summary: >-
+        A Payment Order Approval Message acts as a beacon of confirmation in the financial and e-commerce landscapes. It joyfully informs customers that their transaction attempt has been successful. This message encapsulates key data such as the order ID, transaction date, merchant details, and the total amount approved. By delivering this assurance, businesses foster a sense of trust and positive reinforcement with their clientele, encouraging future transactions. In its essence, this message not only acknowledges successful financial interactions but also strengthens the bond between businesses and their valued customers.
+      contentType: application/cloudevents+json; charset=UTF-8
+      payload:
+        $ref: '#/components/schemas/paymentsOrderApproved'
+
+    ceTransactionWalletRegisteredEvent:
+      name: transactionWalletRegisteredEvent
+      title: Transaction registered in wallet
+      summary: >-
+        a payment event typically involves receiving a payment, confirming its processing, and then updating the payment amount in the user's digital wallet. This sequence ensures secure and reliable financial transactions within digital platforms.
+      contentType: application/cloudevents+json; charset=UTF-8
+      payload:
+        $ref: '#/components/schemas/transactionWalletRegisteredEvent'
+
+  schemas:
+
+    transactionWalletRegisteredEvent:
+      type: object
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/cloudevents/spec/v1.0.1/spec.json'
+      properties:
+        data:
+          $ref: >-
+            https://raw.githubusercontent.com/paymentic/schemas/main/transactions/payments-gateway.v1.transaction-wallet-registered.json
+
+    paymentsOrderApproved:
+      type: object
+      allOf:
+        - $ref: 'https://raw.githubusercontent.com/cloudevents/spec/v1.0.1/spec.json'
+      properties:
+        data:
+          $ref: 'https://raw.githubusercontent.com/paymentic/schemas/main/payments/payments-gateway.v1.payment-order-approved.json'

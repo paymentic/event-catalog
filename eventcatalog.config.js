@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   title: 'Paymentic',
   tagline: 'Payment Gateway Event-Driven Documentation',
@@ -40,5 +42,56 @@ module.exports = {
       avatarUrl: 'https://avatars.githubusercontent.com/u/4073304?v=4',
       role: 'Developer',
     },
+  ],
+  generators: [
+    [
+      '@eventcatalog/plugin-doc-generator-asyncapi',
+      {
+        // path to your AsyncAPI files
+        pathToSpec: [path.join(__dirname, '/asyncapis/asyncapi-payment-service.yaml')],
+
+        // version events if already in catalog (optional)
+        versionEvents: true,
+        domainName: 'Payments',
+        domainSummary: 'Domain for everything to do with Payment Gateway at our business. Before adding any events or services to this domain make sure you contact the domain owners and verify it\'s the correct place',
+
+      },
+    ],
+    [
+      '@eventcatalog/plugin-doc-generator-asyncapi',
+      {
+        // path to your AsyncAPI files
+        pathToSpec: [path.join(__dirname, '/asyncapis/asyncapi-payment-executor.yaml')],
+
+        // version events if already in catalog (optional)
+        versionEvents: true,
+        domainName: 'Payments',
+        domainSummary: 'Domain for everything to do with Payment Gateway at our business. Before adding any events or services to this domain make sure you contact the domain owners and verify it\'s the correct place',
+      },
+    ],
+    [
+      '@eventcatalog/plugin-doc-generator-asyncapi',
+      {
+        // path to your AsyncAPI files
+        pathToSpec: [path.join(__dirname, '/asyncapis/asyncapi-wallet.yaml')],
+
+        // version events if already in catalog (optional)
+        versionEvents: true,
+        domainName: 'Payments',
+        domainSummary: 'Domain for everything to do with Payment Gateway at our business. Before adding any events or services to this domain make sure you contact the domain owners and verify it\'s the correct place',
+      },
+    ],
+    [
+      '@eventcatalog/plugin-doc-generator-asyncapi',
+      {
+        // path to your AsyncAPI files
+        pathToSpec: [path.join(__dirname, '/asyncapis/asyncapi-ledger.yaml')],
+
+        // version events if already in catalog (optional)
+        versionEvents: true,
+        domainName: 'Payments',
+        domainSummary: 'Domain for everything to do with Payment Gateway at our business. Before adding any events or services to this domain make sure you contact the domain owners and verify it\'s the correct place',
+      },
+    ],
   ],
 }
