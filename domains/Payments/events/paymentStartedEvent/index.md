@@ -4,7 +4,8 @@ summary: 'Inform about environmental lighting conditions of a particular streetl
 version: 0.0.1
 producers:
     - 'Payments Executor'
-consumers: []
+consumers:
+    - 'Payments Services API'
 externalLinks: []
 badges: []
 ---

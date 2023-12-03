@@ -4,7 +4,8 @@ summary: 'A Payment Order Decline Message is a crucial communication tool used i
 version: 0.0.1
 producers:
     - 'Payments Executor'
-consumers: []
+consumers:
+    - 'Payments Services API'
 externalLinks: []
 badges: []
 ---

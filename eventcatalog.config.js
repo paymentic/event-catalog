@@ -53,7 +53,7 @@ module.exports = {
         // version events if already in catalog (optional)
         versionEvents: true,
         domainName: 'Payments',
-        domainSummary: 'Domain for everything to do with Payment Gateway at our business. Before adding any events or services to this domain make sure you contact the domain owners and verify it\'s the correct place',
+        domainSummary: 'the Payment Gateway Domain in a payment gateway ecosystem is a critical component that ensures the seamless, secure, and compliant processing of online payments, integrating with various financial entities and platforms, and managing the entire payment transaction lifecycle.',
 
       },
     ],
@@ -66,7 +66,7 @@ module.exports = {
         // version events if already in catalog (optional)
         versionEvents: true,
         domainName: 'Payments',
-        domainSummary: 'Domain for everything to do with Payment Gateway at our business. Before adding any events or services to this domain make sure you contact the domain owners and verify it\'s the correct place',
+        domainSummary: 'the Payment Gateway Domain in a payment gateway ecosystem is a critical component that ensures the seamless, secure, and compliant processing of online payments, integrating with various financial entities and platforms, and managing the entire payment transaction lifecycle.',
       },
     ],
     [
@@ -77,8 +77,8 @@ module.exports = {
 
         // version events if already in catalog (optional)
         versionEvents: true,
-        domainName: 'Payments',
-        domainSummary: 'Domain for everything to do with Payment Gateway at our business. Before adding any events or services to this domain make sure you contact the domain owners and verify it\'s the correct place',
+        domainName: 'Wallet',
+        domainSummary: 'the Wallet for Sellers\' Domain in a payment gateway ecosystem is a crucial component for managing the financial aspects of seller transactions, maintaining balance and transaction integrity, and providing a secure and efficient financial platform for sellers.',
       },
     ],
     [
@@ -89,8 +89,8 @@ module.exports = {
 
         // version events if already in catalog (optional)
         versionEvents: true,
-        domainName: 'Payments',
-        domainSummary: 'Domain for everything to do with Payment Gateway at our business. Before adding any events or services to this domain make sure you contact the domain owners and verify it\'s the correct place',
+        domainName: 'Ledger',
+        domainSummary: 'the ledger domain in a payment gateway ecosystem is a critical component that ensures the accurate and secure recording and management of financial transactions, integral to the overall functioning of the payment system.',
       },
     ],
   ],

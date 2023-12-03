@@ -4,7 +4,8 @@ summary: 'A Payment Request Creation Message is the starting point in the digita
 version: 0.0.1
 producers:
     - 'Payments Services API'
-consumers: []
+consumers:
+    - 'Payments Executor'
 externalLinks: []
 badges: []
 ---
